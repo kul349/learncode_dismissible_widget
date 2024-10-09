@@ -60,6 +60,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     child: ListTile(
                       title: Text(post["title"]),
+                      subtitle: Text(post["body"]),
+                      trailing: const Icon(Icons.person),
                     ),
                   );
                 }));
