@@ -16,35 +16,75 @@ class _DashboardPageState extends State<DashboardPage> {
         title: const Text("Dashboard"),
         centerTitle: true,
       ),
-      body: Stack(
-        children: [
-          Container(
-            margin: const EdgeInsets.only(top: 10, left: 10, right: 10),
-            height: MediaQuery.sizeOf(context).height / 3.2,
-            decoration: BoxDecoration(
-              color: color7, // Assuming this is defined in constant.dart
-              borderRadius: BorderRadius.circular(20),
+      body: SingleChildScrollView(
+        child: Stack(children: [
+          SizedBox(
+            height: 250,
+            width: double.infinity,
+            child: Image.network(
+              image,
+              fit: BoxFit.cover,
             ),
           ),
-          Positioned(
-            top: 20, // Adjust the positioning as needed
-            left: MediaQuery.sizeOf(context).width / 3,
-            child: InkWell(
-              onTap: () {
-                // Define your action here
-              },
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Image.network(
-                  "https://images.pexels.com/photos/1485548/pexels-photo-1485548.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-                  height: 100, // This keeps the image small
-                  width: 100,
-                  fit: BoxFit.cover,
-                ),
-              ),
+          Container(
+            margin: const EdgeInsets.fromLTRB(16.0, 200.0, 16.0, 16.0),
+            child: Column(
+              children: [
+                Stack(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(16.0),
+                      margin: const EdgeInsets.only(top: 16.0),
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(5)),
+                      child: Column(
+                        children: [
+                          Container(
+                            margin: const EdgeInsets.only(left: 96.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Little Butterfly",
+                                  style: Theme.of(context).textTheme.labelLarge,
+                                ),
+                                const ListTile(
+                                  contentPadding: EdgeInsets.all(0),
+                                  title: Text("Product Design"),
+                                  subtitle: Text("Kathmandu"),
+                                )
+                              ],
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10.0,
+                          ),
+                          const Row(
+                            children: [
+                              Expanded(
+                                  child: Column(
+                                children: [Text("285"), Text("Likes")],
+                              )),
+                              Expanded(
+                                  child: Column(
+                                children: [Text("3025"), Text("Comments")],
+                              )),
+                              Expanded(
+                                  child: Column(
+                                children: [Text("650"), Text("Favourites")],
+                              ))
+                            ],
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                )
+              ],
             ),
           )
-        ],
+        ]),
       ),
     );
   }
