@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learncode/utils/constant.dart';
 
 class DoctorProfilePage extends StatefulWidget {
   const DoctorProfilePage({super.key});
@@ -12,51 +13,57 @@ class _DoctorProfilePageState extends State<DoctorProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("DocotorProfile"),
+        title: const Text("DoctorProfile"),
         centerTitle: true,
       ),
-      body: Stack(
+      body: Column(
         children: [
-          Column(
-            children: [
-              Stack(
+          Container(
+            height: 400,
+            decoration: const BoxDecoration(
+                color: color7,
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(50),
+                    bottomRight: Radius.circular(50))),
+            child: const Column(children: [
+              SizedBox(
+                height: 40,
+              ),
+              Center(
+                child: CircleAvatar(
+                  radius: 50,
+                  backgroundImage: NetworkImage(
+                      "https://images.pexels.com/photos/2280551/pexels-photo-2280551.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Row(
                 children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.green,
-                      borderRadius: BorderRadius.circular(20),
+                  Expanded(
+                    child: ListTile(
+                      title: Text(
+                        "Qualification",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      subtitle: Text("MBBS"),
                     ),
-                    margin: const EdgeInsets.fromLTRB(30, 110, 30, 2),
-                    height: 300,
-                  )
+                  ),
+                  Expanded(
+                      child: ListTile(
+                    title: Text("Address"),
+                    subtitle: Text("Hadiya"),
+                  )),
+                  Expanded(
+                      child: ListTile(
+                    title: Text("Phone"),
+                    subtitle: Text("9824715684"),
+                  ))
                 ],
               )
-            ],
-          ),
-          Container(
-              margin: const EdgeInsets.fromLTRB(90, 170, 90, 90),
-              child: const Column(
-                children: [
-                  CircleAvatar(
-                    radius: 50,
-                    backgroundImage: NetworkImage(
-                        "https://images.pexels.com/photos/2280551/pexels-photo-2280551.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
-                  ),
-                  ListTile(
-                    title: Text(
-                      "Doctor are the second god",
-                      style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold),
-                    ),
-                    subtitle: Text(
-                      "one click\n find your solution",
-                      style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold),
-                    ),
-                    trailing: Icon(Icons.dashboard),
-                  )
-                ],
-              )),
+            ]),
+          )
         ],
       ),
     );

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:learncode/widget/dashboard_page.dart';
 import 'package:learncode/widget/doctor_profile_page.dart';
 
 void main() {
